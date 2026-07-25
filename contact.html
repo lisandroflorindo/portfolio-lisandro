@@ -60,66 +60,24 @@
                 </div>
             </nav>
 
-            <section class="page-section">
+            <section class="page-section contact-options-section">
                 <div class="container px-4 px-lg-5">
                     <div class="row justify-content-center">
-                        <div class="col-xl-10">
-                            <div class="contact-layout">
-                                <div class="contact-intro">
-                                    <p class="eyebrow">CONTACTO</p>
-                                    <h1 class="section-heading">Hablemos de tu próximo proyecto</h1>
-                                    <p class="section-description">Contame qué necesitás desarrollar, mejorar o resolver. </p>
-                                    <p>Cuanta más información compartas sobre el proyecto, más precisa podrá ser la propuesta.</p>
+                        <div class="col-lg-9 col-xl-8">
+                            <div class="content-card contact-card-direct">
+                                <p class="eyebrow">CONTACTO</p>
+                                <h1 class="section-heading">Hablemos de tu próximo proyecto</h1>
+                                <p class="section-description">Contame qué necesitás desarrollar, mejorar o resolver.</p>
+                                <div class="contact-methods" aria-label="Opciones de contacto">
+                                    <a class="contact-action-link" href="mailto:lisandromauricio33@gmail.com?subject=Consulta%20desde%20el%20portfolio">
+                                        <span>lisandromauricio33@gmail.com</span>
+                                        <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+                                    </a>
 
-                                    <div class="direct-links" aria-label="Accesos directos">
-                                        <a class="social-link" href="https://www.linkedin.com/in/lisandroflorindo/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Lisandro Florindo" title="LinkedIn">
-                                            <i class="bi bi-linkedin" aria-hidden="true"></i>
-                                        </a>
-                                        <a class="social-link" href="https://github.com/lisandroflorindo" target="_blank" rel="noopener noreferrer" aria-label="GitHub de Lisandro Florindo" title="GitHub">
-                                            <i class="bi bi-github" aria-hidden="true"></i>
-                                        </a>
-                                        <a class="social-link" href="https://www.instagram.com/lisandro.florindo/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Lisandro Florindo" title="Instagram">
-                                            <i class="bi bi-instagram" aria-hidden="true"></i>
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <div class="content-card contact-card">
-                                    <form id="contactForm" class="contact-form" action="https://formsubmit.co/lisandromauricio33@gmail.com" method="POST" novalidate>
-                                        <input type="hidden" name="_subject" value="Tenes un nuevo mensaje desde tu portfolio" />
-                                        <input type="hidden" name="_template" value="table" />
-                                        <input type="hidden" name="_captcha" value="false" />
-                                        <input class="form-honey" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" />
-                                        <div class="form-field">
-                                            <label for="name">Nombre y apellido</label>
-                                            <input class="form-control" id="name" name="name" type="text" autocomplete="name" required />
-                                            <p class="field-error" id="nameError">Ingresá tu nombre y apellido.</p>
-                                        </div>
-
-                                        <div class="form-field">
-                                            <label for="email">Correo electrónico</label>
-                                            <input class="form-control" id="email" name="email" type="email" autocomplete="email" required />
-                                            <p class="field-error" id="emailError">Ingresá un correo electrónico válido.</p>
-                                        </div>
-
-                                        <div class="form-field">
-                                            <label for="phone">Teléfono</label>
-                                            <input class="form-control" id="phone" name="phone" type="tel" autocomplete="tel" />
-                                        </div>
-
-                                        <div class="form-field">
-                                            <label for="message">Mensaje</label>
-                                            <textarea class="form-control" id="message" name="message" rows="6" placeholder="Contame sobre tu proyecto" required></textarea>
-                                            <p class="field-error" id="messageError">Ingresá un mensaje sobre tu proyecto.</p>
-                                        </div>
-
-                                        <div class="form-status" id="formStatus" aria-live="polite"></div>
-
-                                        <button class="brand-button submit-button" id="submitButton" type="submit">
-                                            <span class="button-label">Enviar consulta</span>
-                                            <span class="button-loading" hidden>Enviando...</span>
-                                        </button>
-                                    </form>
+                                    <a class="contact-action-link contact-whatsapp-link" href="https://wa.me/5493764564963?text=Hola%20Lisandro!%20Tengo%20un%20proyecto%20en%20mente." target="_blank" rel="noopener noreferrer">
+                                        <span>WhatsApp</span>
+                                        <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -133,13 +91,13 @@
                 <div class="footer-layout">
                     <p class="footer-copy">
                         <img class="footer-logo" src="assets/logo-lisandro-avatar.png" width="264" height="260" alt="" />
-                        </span> Lisandro Florindo · Posadas, Misiones.</span>
+                        <span>© <span data-current-year></span> Lisandro Florindo · Posadas, Misiones.</span>
                     </p>
                     <nav class="footer-nav" aria-label="Navegación secundaria">
-                        <a href="index.html" aria-current="page">Inicio</a>
+                        <a href="index.html">Inicio</a>
                         <a href="resume.html">Experiencia</a>
                         <a href="projects.html">Proyectos</a>
-                        <a href="contact.html">Contacto</a>
+                        <a href="contact.html" aria-current="page">Contacto</a>
                     </nav>
                 </div>
             </div>
@@ -149,4 +107,3 @@
         <script src="js/scripts.js"></script>
     </body>
 </html>
-
