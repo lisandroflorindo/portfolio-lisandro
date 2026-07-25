@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="Portfolio de Lisandro Florindo, desarrollador web especializado en sitios institucionales, interfaces modernas y sistemas administrativos." />
+        <meta name="author" content="Lisandro Florindo" />
+        <meta name="theme-color" content="#58629C" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Contacto | Lisandro Florindo" />
+        <meta property="og:description" content="Portfolio de Lisandro Florindo, desarrollador web especializado en sitios institucionales, interfaces modernas y sistemas administrativos." />
+        <meta property="og:image" content="assets/logo-lisandro.png" />
+        <title>Contacto | Lisandro Florindo</title>
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
+        <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/custom.css" rel="stylesheet" />
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "Person",
+                "name": "Lisandro Florindo",
+                "jobTitle": "Desarrollador web",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Posadas",
+                    "addressRegion": "Misiones",
+                    "addressCountry": "AR"
+                },
+                "sameAs": [
+                    "https://github.com/lisandroflorindo",
+                    "https://www.linkedin.com/in/lisandroflorindo/",
+                    "https://www.instagram.com/lisandro.florindo/"
+                ]
+            }
+        </script>
+    </head>
+    <body class="d-flex flex-column min-vh-100 bg-surface">
+        <main class="flex-shrink-0">
+            <nav class="navbar navbar-expand-lg navbar-light site-navbar sticky-top" aria-label="Navegación principal">
+                <div class="container px-4 px-lg-5">
+                    <a class="navbar-brand" href="index.html">Lisandro Florindo</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Abrir menú de navegación">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="mainNavbar">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                            <li class="nav-item"><a class="nav-link" href="resume.html">Experiencia</a></li>
+                            <li class="nav-item"><a class="nav-link" href="projects.html">Proyectos</a></li>
+                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="contact.html">Contacto</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <section class="page-section">
+                <div class="container px-4 px-lg-5">
+                    <div class="row justify-content-center">
+                        <div class="col-xl-10">
+                            <div class="contact-layout">
+                                <div class="contact-intro">
+                                    <p class="eyebrow">CONTACTO</p>
+                                    <h1 class="section-heading">Hablemos de tu próximo proyecto</h1>
+                                    <p class="section-description">Contame qué necesitás desarrollar, mejorar o resolver. Cuanta más información compartas sobre el proyecto, más precisa podrá ser la propuesta.</p>
+                                    <p>Podés consultar por sitios institucionales, landing pages, mantenimiento web, interfaces y sistemas administrativos.</p>
+
+                                    <div class="direct-links" aria-label="Accesos directos">
+                                        <a class="social-link" href="https://www.linkedin.com/in/lisandroflorindo/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Lisandro Florindo" title="LinkedIn">
+                                            <i class="bi bi-linkedin" aria-hidden="true"></i>
+                                        </a>
+                                        <a class="social-link" href="https://github.com/lisandroflorindo" target="_blank" rel="noopener noreferrer" aria-label="GitHub de Lisandro Florindo" title="GitHub">
+                                            <i class="bi bi-github" aria-hidden="true"></i>
+                                        </a>
+                                        <a class="social-link" href="https://www.instagram.com/lisandro.florindo/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Lisandro Florindo" title="Instagram">
+                                            <i class="bi bi-instagram" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="content-card contact-card">
+                                    <form id="contactForm" class="contact-form" novalidate data-sb-form-api-token="">
+                                        <div class="form-field">
+                                            <label for="name">Nombre y apellido</label>
+                                            <input class="form-control" id="name" name="name" type="text" autocomplete="name" required />
+                                            <p class="field-error" id="nameError">Ingresá tu nombre y apellido.</p>
+                                        </div>
+
+                                        <div class="form-field">
+                                            <label for="email">Correo electrónico</label>
+                                            <input class="form-control" id="email" name="email" type="email" autocomplete="email" required />
+                                            <p class="field-error" id="emailError">Ingresá un correo electrónico válido.</p>
+                                        </div>
+
+                                        <div class="form-field">
+                                            <label for="phone">Teléfono <span>(opcional)</span></label>
+                                            <input class="form-control" id="phone" name="phone" type="tel" autocomplete="tel" />
+                                        </div>
+
+                                        <div class="form-field">
+                                            <label for="message">Mensaje</label>
+                                            <textarea class="form-control" id="message" name="message" rows="6" placeholder="Contame brevemente sobre tu proyecto, sus objetivos y las funcionalidades que necesitás." required></textarea>
+                                            <p class="field-error" id="messageError">Ingresá un mensaje sobre tu proyecto.</p>
+                                        </div>
+
+                                        <div class="form-status" id="formStatus" aria-live="polite"></div>
+
+                                        <button class="brand-button submit-button" id="submitButton" type="submit">
+                                            <span class="button-label">Enviar consulta</span>
+                                            <span class="button-loading" hidden>Enviando...</span>
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer mt-auto">
+            <div class="container px-4 px-lg-5">
+                <div class="footer-layout">
+                    <p class="footer-copy">© <span data-current-year></span> Lisandro Florindo · Posadas, Misiones, Argentina.</p>
+                    <nav class="footer-nav" aria-label="Navegación secundaria">
+                        <a href="index.html">Inicio</a>
+                        <a href="resume.html">Experiencia</a>
+                        <a href="projects.html">Proyectos</a>
+                        <a href="contact.html" aria-current="page">Contacto</a>
+                    </nav>
+                </div>
+            </div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
