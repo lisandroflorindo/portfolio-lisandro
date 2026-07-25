@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
     <head>
         <meta charset="utf-8" />
@@ -40,9 +40,12 @@
     </head>
     <body class="d-flex flex-column min-vh-100 bg-surface">
         <main class="flex-shrink-0">
-            <nav class="navbar navbar-expand-lg navbar-light site-navbar sticky-top" aria-label="Navegación principal">
+            <nav class="navbar navbar-expand-lg navbar-light site-navbar" aria-label="Navegación principal">
                 <div class="container px-4 px-lg-5">
-                    <a class="navbar-brand" href="index.html">Lisandro Florindo</a>
+                    <a class="navbar-brand" href="index.html">
+                        <img class="brand-logo" src="assets/logo-lisandro-avatar.png" width="264" height="260" alt="" />
+                        <span>Lisandro Florindo</span>
+                    </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Abrir menú de navegación">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -65,8 +68,8 @@
                                 <div class="contact-intro">
                                     <p class="eyebrow">CONTACTO</p>
                                     <h1 class="section-heading">Hablemos de tu próximo proyecto</h1>
-                                    <p class="section-description">Contame qué necesitás desarrollar, mejorar o resolver. Cuanta más información compartas sobre el proyecto, más precisa podrá ser la propuesta.</p>
-                                    <p>Podés consultar por sitios institucionales, landing pages, mantenimiento web, interfaces y sistemas administrativos.</p>
+                                    <p class="section-description">Contame qué necesitás desarrollar, mejorar o resolver. </p>
+                                    <p>Cuanta más información compartas sobre el proyecto, más precisa podrá ser la propuesta.</p>
 
                                     <div class="direct-links" aria-label="Accesos directos">
                                         <a class="social-link" href="https://www.linkedin.com/in/lisandroflorindo/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Lisandro Florindo" title="LinkedIn">
@@ -82,7 +85,11 @@
                                 </div>
 
                                 <div class="content-card contact-card">
-                                    <form id="contactForm" class="contact-form" novalidate data-sb-form-api-token="">
+                                    <form id="contactForm" class="contact-form" action="https://formsubmit.co/lisandromauricio33@gmail.com" method="POST" novalidate>
+                                        <input type="hidden" name="_subject" value="Tenes un nuevo mensaje desde tu portfolio" />
+                                        <input type="hidden" name="_template" value="table" />
+                                        <input type="hidden" name="_captcha" value="false" />
+                                        <input class="form-honey" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" />
                                         <div class="form-field">
                                             <label for="name">Nombre y apellido</label>
                                             <input class="form-control" id="name" name="name" type="text" autocomplete="name" required />
@@ -96,13 +103,13 @@
                                         </div>
 
                                         <div class="form-field">
-                                            <label for="phone">Teléfono <span>(opcional)</span></label>
+                                            <label for="phone">Teléfono</label>
                                             <input class="form-control" id="phone" name="phone" type="tel" autocomplete="tel" />
                                         </div>
 
                                         <div class="form-field">
                                             <label for="message">Mensaje</label>
-                                            <textarea class="form-control" id="message" name="message" rows="6" placeholder="Contame brevemente sobre tu proyecto, sus objetivos y las funcionalidades que necesitás." required></textarea>
+                                            <textarea class="form-control" id="message" name="message" rows="6" placeholder="Contame sobre tu proyecto" required></textarea>
                                             <p class="field-error" id="messageError">Ingresá un mensaje sobre tu proyecto.</p>
                                         </div>
 
@@ -124,12 +131,15 @@
         <footer class="site-footer mt-auto">
             <div class="container px-4 px-lg-5">
                 <div class="footer-layout">
-                    <p class="footer-copy">© <span data-current-year></span> Lisandro Florindo · Posadas, Misiones, Argentina.</p>
+                    <p class="footer-copy">
+                        <img class="footer-logo" src="assets/logo-lisandro-avatar.png" width="264" height="260" alt="" />
+                        </span> Lisandro Florindo · Posadas, Misiones.</span>
+                    </p>
                     <nav class="footer-nav" aria-label="Navegación secundaria">
-                        <a href="index.html">Inicio</a>
+                        <a href="index.html" aria-current="page">Inicio</a>
                         <a href="resume.html">Experiencia</a>
                         <a href="projects.html">Proyectos</a>
-                        <a href="contact.html" aria-current="page">Contacto</a>
+                        <a href="contact.html">Contacto</a>
                     </nav>
                 </div>
             </div>
@@ -139,3 +149,4 @@
         <script src="js/scripts.js"></script>
     </body>
 </html>
+

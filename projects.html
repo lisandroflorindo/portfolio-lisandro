@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
     <head>
         <meta charset="utf-8" />
@@ -40,9 +40,12 @@
     </head>
     <body class="d-flex flex-column min-vh-100 bg-surface">
         <main class="flex-shrink-0">
-            <nav class="navbar navbar-expand-lg navbar-light site-navbar sticky-top" aria-label="Navegación principal">
+            <nav class="navbar navbar-expand-lg navbar-light site-navbar" aria-label="Navegación principal">
                 <div class="container px-4 px-lg-5">
-                    <a class="navbar-brand" href="index.html">Lisandro Florindo</a>
+                    <a class="navbar-brand" href="index.html">
+                        <img class="brand-logo" src="assets/logo-lisandro-avatar.png" width="264" height="260" alt="" />
+                        <span>Lisandro Florindo</span>
+                    </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Abrir menú de navegación">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -69,7 +72,7 @@
                             <div class="project-info">
                                 <p class="project-type">Sitio institucional + Panel administrativo</p>
                                 <h2>Federación Argentina de Psicopedagogos</h2>
-                                <p>Desarrollo de una plataforma institucional con secciones para noticias, artículos, eventos, publicaciones, legislación, documentos y entidades miembro. Incluye herramientas administrativas para gestionar los contenidos del sitio.</p>
+                                <p>Desarrollo de una plataforma institucional con secciones para noticias, artículos, eventos, publicaciones, legislación, documentos y entidades miembro. Incluye un panel de administración para gestionar los contenidos del sitio.</p>
                                 <div class="project-tags" aria-label="Características del proyecto">
                                     <span class="technology-tag">PHP</span>
                                     <span class="technology-tag">LARAVEL</span>
@@ -90,7 +93,6 @@
                                 <div class="project-tags" aria-label="Características del proyecto">
                                     <span class="technology-tag">REACT</span>
                                     <span class="technology-tag">TAILWIND</span>
-                                    <span class="technology-tag">NODE.JS</span>
                                 </div>
                             </div>
                             <div class="project-media">
@@ -116,7 +118,7 @@
 
                         <article class="project-card">
                             <div class="project-info">
-                                <p class="project-type">Sitio institucional + Sistema administrativo</p>
+                                <p class="project-type">Sitio institucional + Sistema de administración</p>
                                 <h2>Instituto Superior Sanmartiniano</h2>
                                 <p>Desarrollo y mantenimiento del sitio institucional con panel administrativo para publicar noticias y documentos.</p>
                                 <div class="project-tags" aria-label="Características del proyecto">
@@ -150,11 +152,14 @@
         <footer class="site-footer mt-auto">
             <div class="container px-4 px-lg-5">
                 <div class="footer-layout">
-                    <p class="footer-copy">© <span data-current-year></span> Lisandro Florindo · Posadas, Misiones, Argentina.</p>
+                    <p class="footer-copy">
+                        <img class="footer-logo" src="assets/logo-lisandro-avatar.png" width="264" height="260" alt="" />
+                        </span> Lisandro Florindo · Posadas, Misiones.</span>
+                    </p>
                     <nav class="footer-nav" aria-label="Navegación secundaria">
-                        <a href="index.html">Inicio</a>
+                        <a href="index.html" aria-current="page">Inicio</a>
                         <a href="resume.html">Experiencia</a>
-                        <a href="projects.html" aria-current="page">Proyectos</a>
+                        <a href="projects.html">Proyectos</a>
                         <a href="contact.html">Contacto</a>
                     </nav>
                 </div>
@@ -165,3 +170,4 @@
         <script src="js/scripts.js"></script>
     </body>
 </html>
+

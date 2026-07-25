@@ -10,7 +10,6 @@ window.addEventListener("DOMContentLoaded", () => {
 
     const submitButton = form.querySelector("#submitButton");
     const status = form.querySelector("#formStatus");
-    const apiToken = form.dataset.sbFormApiToken;
 
     const fields = [
         {
@@ -74,21 +73,22 @@ window.addEventListener("DOMContentLoaded", () => {
         submitButton.classList.add("disabled");
         submitButton.querySelector(".button-label").hidden = true;
         submitButton.querySelector(".button-loading").hidden = false;
+        status.textContent = "Enviando consulta...";
+        status.classList.add("is-success");
 
         window.setTimeout(() => {
-            submitButton.disabled = false;
-            submitButton.classList.remove("disabled");
-            submitButton.querySelector(".button-label").hidden = false;
-            submitButton.querySelector(".button-loading").hidden = true;
-
-            if (!apiToken) {
-                status.textContent = "La consulta está validada, pero falta configurar un servicio real de envío para recibir mensajes.";
+            if (!form.action) {
+                submitButton.disabled = false;
+                submitButton.classList.remove("disabled");
+                submitButton.querySelector(".button-label").hidden = false;
+                submitButton.querySelector(".button-loading").hidden = true;
+                status.textContent = "No hay un servicio de envío configurado para este formulario.";
+                status.className = "form-status";
                 status.classList.add("is-error");
                 return;
             }
 
-            status.textContent = "La consulta está lista para enviarse con el servicio configurado.";
-            status.classList.add("is-success");
-        }, 500);
+            form.submit();
+        }, 250);
     });
 });
