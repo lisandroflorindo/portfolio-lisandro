@@ -1,0 +1,55 @@
+[
+  {
+    "nombre": "Federación Argentina de Psicopedagogos",
+    "descripcion": "Desarrollo de una plataforma institucional con secciones para noticias, artículos, eventos, publicaciones, legislación, documentos y entidades miembro. Incluye un panel de administración para gestionar los contenidos del sitio.",
+    "categoria": "Sitio institucional + Panel administrativo",
+    "tecnologias": [
+      "PHP",
+      "LARAVEL",
+      "CSS3",
+      "MYSQL"
+    ],
+    "imagen": "assets/logo-fap.png",
+    "enlace": "",
+    "estado": "publicado"
+  },
+  {
+    "nombre": "Habitarte",
+    "descripcion": "Diseño y desarrollo de una landing page orientada a presentar la identidad, la propuesta y los servicios de la marca mediante una navegación clara y una experiencia adaptable a distintos dispositivos.",
+    "categoria": "Landing page",
+    "tecnologias": [
+      "REACT",
+      "TAILWIND"
+    ],
+    "imagen": "assets/logo-habitarte.png",
+    "enlace": "",
+    "estado": "publicado"
+  },
+  {
+    "nombre": "Inusittá",
+    "descripcion": "Landing page desarrollada para una agencia especializada en bienestar y productividad. La estructura presenta sus servicios, propuesta de valor e información institucional de manera clara y accesible.",
+    "categoria": "Sitio web de servicios",
+    "tecnologias": [
+      "HTML5",
+      "CSS3",
+      "JAVASCRIPT"
+    ],
+    "imagen": "assets/logo-inusitta.webp",
+    "enlace": "",
+    "estado": "publicado"
+  },
+  {
+    "nombre": "Instituto Superior Sanmartiniano",
+    "descripcion": "Desarrollo y mantenimiento del sitio institucional con panel administrativo para publicar noticias y documentos.",
+    "categoria": "Sitio institucional + Sistema de administración",
+    "tecnologias": [
+      "REACT",
+      "TAILWIND",
+      "PHP",
+      "MYSQL"
+    ],
+    "imagen": "assets/logo-issm-display.png",
+    "enlace": "",
+    "estado": "publicado"
+  }
+]

@@ -7,8 +7,6 @@
     --white: #FFFFFF;
     --border-color: rgba(88, 98, 156, 0.16);
     --brand-gradient: linear-gradient(135deg, #405DB4 0%, #58629C 100%);
-    --shadow-soft: 0 18px 45px rgba(23, 26, 43, 0.08);
-    --shadow-subtle: 0 10px 26px rgba(23, 26, 43, 0.06);
     --shadow-card: 14px 14px 0 rgba(88, 98, 156, 0.22);
     --shadow-card-hover: 17px 17px 0 rgba(88, 98, 156, 0.28);
     --radius-lg: 22px;
@@ -843,3 +841,25 @@ a:hover {
         animation-iteration-count: 1 !important;
     }
 }
+
+/* Gestión de proyectos: mantiene la paleta y las tarjetas del portfolio. */
+[hidden] { display: none !important; }
+.project-toolbar { display: flex; justify-content: flex-end; margin-bottom: 1.5rem; }
+.management-layout { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 2rem; align-items: start; }
+.management-layout .project-card { grid-template-columns: 1fr; }
+.management-layout .project-media { min-height: 120px; border-left: 0; border-top: 1px solid var(--border-color); }
+.management-layout .project-media img { max-height: 100px; }
+.management-layout h2 { font-size: 1.4rem; font-weight: 800; }
+#project-form { display: flex; flex-direction: column; }
+#project-form label { margin-top: 1rem; font-weight: 700; }
+#project-form input, #project-form textarea, #project-form select { width: 100%; padding: 0.65rem 0.8rem; border: 1px solid var(--brand-primary); border-radius: 10px; background: var(--white); color: var(--text-primary); font: inherit; }
+#project-form textarea { resize: vertical; }
+#project-form small { color: var(--text-secondary); margin-top: 0.35rem; }
+.form-actions { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-top: 1.4rem; }
+.publication-state { margin: 1rem 0 0; font-weight: 800; }
+.delete-button { color: #a12626; }
+button:disabled { opacity: 0.6; cursor: wait; }
+#form-status { margin-top: 1rem; overflow-wrap: anywhere; }
+.project-without-image { grid-template-columns: 1fr; }
+.project-info > .outline-button { margin-top: 1rem; }
+@media (max-width: 991.98px) { .management-layout { grid-template-columns: 1fr; } }

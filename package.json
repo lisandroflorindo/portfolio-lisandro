@@ -1,0 +1,23 @@
+{
+  "name": "portfolio-lisandro",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "build": "tsc -p backend/tsconfig.json",
+    "start": "npm run build && node --env-file-if-exists=.env backend/dist/server.js",
+    "test": "npm run build && node --env-file-if-exists=.env --test backend/test/*.test.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "mysql2": "^3.24.6"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.0.0",
+    "typescript": "^5.9.0"
+  }
+}

@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="Portfolio de Lisandro Florindo, desarrollador web especializado en sitios institucionales, interfaces modernas y sistemas administrativos." />
+        <meta name="author" content="Lisandro Florindo" />
+        <meta name="theme-color" content="#58629C" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Gestión de proyectos | Lisandro Florindo" />
+        <meta property="og:description" content="Portfolio de Lisandro Florindo, desarrollador web especializado en sitios institucionales, interfaces modernas y sistemas administrativos." />
+        <meta property="og:image" content="assets/logo-lisandro.png" />
+        <title>Gestión de proyectos | Lisandro Florindo</title>
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
+        <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/custom.css" rel="stylesheet" />
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "Person",
+                "name": "Lisandro Florindo",
+                "jobTitle": "Desarrollador web",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Posadas",
+                    "addressRegion": "Misiones",
+                    "addressCountry": "AR"
+                },
+                "sameAs": [
+                    "https://github.com/lisandroflorindo",
+                    "https://www.linkedin.com/in/lisandroflorindo/",
+                    "https://www.instagram.com/lisandro.florindo/"
+                ]
+            }
+        </script>
+    </head>
+    <body class="d-flex flex-column min-vh-100 bg-surface">
+        <main class="flex-shrink-0">
+            <nav class="navbar navbar-expand-lg navbar-light site-navbar" aria-label="Navegación principal">
+                <div class="container px-4 px-lg-5">
+                    <a class="navbar-brand" href="index.html">
+                        <img class="brand-logo" src="assets/logo-lisandro-avatar.png" width="264" height="260" alt="" />
+                        <span>Lisandro Florindo</span>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Abrir menú de navegación">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="mainNavbar">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                            <li class="nav-item"><a class="nav-link" href="resume.html">Experiencia</a></li>
+                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="projects.html">Proyectos</a></li>
+                            <li class="nav-item"><a class="nav-link" href="contact.html">Contacto</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <section class="page-section">
+                <div class="container px-4 px-lg-5">
+                    <div class="page-header"><p class="eyebrow">MI PORTFOLIO</p><h1 class="section-heading">Gestionar proyectos</h1><p class="section-description">Creá proyectos, actualizá su información y elegí cuáles publicar.</p></div>
+                    <div class="project-toolbar"><a href="projects.html">← Volver a proyectos</a></div>
+                    <div class="management-layout">
+                        <section class="content-card project-info" aria-labelledby="form-title">
+                            <h2 id="form-title">Nuevo proyecto</h2>
+                            <form id="project-form">
+                                <label for="nombre">Nombre</label><input id="nombre" name="nombre" required maxlength="120" />
+                                <label for="categoria">Categoría</label><input id="categoria" name="categoria" required maxlength="120" />
+                                <label for="descripcion">Descripción</label><textarea id="descripcion" name="descripcion" required maxlength="3000" rows="5"></textarea>
+                                <label for="tecnologias">Tecnologías</label><input id="tecnologias" name="tecnologias" required maxlength="1000" aria-describedby="tech-help" /><small id="tech-help">Separá cada tecnología con una coma: HTML, CSS, JavaScript.</small>
+                                <label for="imagen">Imagen</label><input id="imagen" name="imagen" maxlength="500" aria-describedby="image-help" /><small id="image-help">Ruta dentro de assets/ o URL https://. Indicá una imagen o un enlace.</small>
+                                <label for="enlace">Enlace del proyecto</label><input id="enlace" name="enlace" type="url" maxlength="500" />
+                                <label for="estado">Estado de publicación</label><select id="estado" name="estado"><option value="borrador">Borrador</option><option value="publicado">Publicado</option></select>
+                                <div class="form-actions"><button class="outline-button" type="submit" id="save-project">Guardar proyecto</button><button class="outline-button" type="button" id="cancel-edit" hidden>Cancelar edición</button></div>
+                            </form>
+                            <p id="form-status" role="status" aria-live="polite"></p>
+                        </section>
+                        <section aria-labelledby="list-title"><h2 id="list-title">Mis proyectos</h2><p id="project-status" role="status" aria-live="polite">Cargando proyectos…</p><button id="retry-projects" class="outline-button" hidden>Reintentar</button><div id="projects-list" class="projects-list"></div></section>
+                    </div>
+                    <noscript>Activá JavaScript para gestionar los proyectos.</noscript>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer mt-auto">
+            <div class="container px-4 px-lg-5">
+                <div class="footer-layout">
+                    <p class="footer-copy">
+                        <img class="footer-logo" src="assets/logo-lisandro-avatar.png" width="264" height="260" alt="" />
+                        <span>© <span data-current-year></span> Lisandro Florindo · Posadas, Misiones.</span>
+                    </p>
+                    <nav class="footer-nav" aria-label="Navegación secundaria">
+                        <a href="index.html">Inicio</a>
+                        <a href="resume.html">Experiencia</a>
+                        <a href="projects.html" aria-current="page">Proyectos</a>
+                        <a href="contact.html">Contacto</a>
+                    </nav>
+                </div>
+            </div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="js/scripts.js"></script>
+        <script type="module" src="js/manage.js"></script>
+    </body>
+</html>

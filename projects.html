@@ -15,7 +15,6 @@
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />
         <link href="css/custom.css" rel="stylesheet" />
         <script type="application/ld+json">
@@ -67,72 +66,11 @@
                         <h1 class="section-heading">Proyectos</h1>
                     </div>
 
-                    <div class="projects-list">
-                        <article class="project-card">
-                            <div class="project-info">
-                                <p class="project-type">Sitio institucional + Panel administrativo</p>
-                                <h2>Federación Argentina de Psicopedagogos</h2>
-                                <p>Desarrollo de una plataforma institucional con secciones para noticias, artículos, eventos, publicaciones, legislación, documentos y entidades miembro. Incluye un panel de administración para gestionar los contenidos del sitio.</p>
-                                <div class="project-tags" aria-label="Características del proyecto">
-                                    <span class="technology-tag">PHP</span>
-                                    <span class="technology-tag">LARAVEL</span>
-                                    <span class="technology-tag">CSS3</span>
-                                    <span class="technology-tag">MYSQL</span>
-                                </div>
-                            </div>
-                            <div class="project-media">
-                                <img src="assets/logo-fap.png" width="4258" height="2810" alt="Logo de Federación Argentina de Psicopedagogos" />
-                            </div>
-                        </article>
-
-                        <article class="project-card">
-                            <div class="project-info">
-                                <p class="project-type">Landing page</p>
-                                <h2>Habitarte</h2>
-                                <p>Diseño y desarrollo de una landing page orientada a presentar la identidad, la propuesta y los servicios de la marca mediante una navegación clara y una experiencia adaptable a distintos dispositivos.</p>
-                                <div class="project-tags" aria-label="Características del proyecto">
-                                    <span class="technology-tag">REACT</span>
-                                    <span class="technology-tag">TAILWIND</span>
-                                </div>
-                            </div>
-                            <div class="project-media">
-                                <img src="assets/logo-habitarte.png" width="1168" height="1159" alt="Logo de Habitarte" />
-                            </div>
-                        </article>
-
-                        <article class="project-card">
-                            <div class="project-info">
-                                <p class="project-type">Sitio web de servicios</p>
-                                <h2>Inusittá</h2>
-                                <p>Landing page desarrollada para una agencia especializada en bienestar y productividad. La estructura presenta sus servicios, propuesta de valor e información institucional de manera clara y accesible.</p>
-                                <div class="project-tags" aria-label="Características del proyecto">
-                                    <span class="technology-tag">HTML5</span>
-                                    <span class="technology-tag">CSS3</span>
-                                    <span class="technology-tag">JAVASCRIPT</span>
-                                </div>
-                            </div>
-                            <div class="project-media">
-                                <img src="assets/logo-inusitta.webp" alt="Logo de Inusittá" />
-                            </div>
-                        </article>
-
-                        <article class="project-card">
-                            <div class="project-info">
-                                <p class="project-type">Sitio institucional + Sistema de administración</p>
-                                <h2>Instituto Superior Sanmartiniano</h2>
-                                <p>Desarrollo y mantenimiento del sitio institucional con panel administrativo para publicar noticias y documentos.</p>
-                                <div class="project-tags" aria-label="Características del proyecto">
-                                    <span class="technology-tag">REACT</span>
-                                    <span class="technology-tag">TAILWIND</span>
-                                    <span class="technology-tag">PHP</span>
-                                    <span class="technology-tag">MYSQL</span>
-                                </div>
-                            </div>
-                            <div class="project-media">
-                                <img src="assets/logo-issm-display.png" width="600" height="600" alt="Logo de Instituto Superior Sanmartiniano" />
-                            </div>
-                        </article>
-                    </div>
+                    <div class="project-toolbar"><a class="outline-button" href="manage.html">Gestionar proyectos</a></div>
+                    <p id="project-status" role="status" aria-live="polite">Cargando proyectos…</p>
+                    <button id="retry-projects" class="outline-button" hidden>Reintentar</button>
+                    <div class="projects-list" id="projects-list"></div>
+                    <noscript>Activá JavaScript para consultar los proyectos.</noscript>
                 </div>
             </section>
 
@@ -168,5 +106,6 @@
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <script src="js/scripts.js"></script>
+        <script type="module" src="js/projects.js"></script>
     </body>
 </html>
