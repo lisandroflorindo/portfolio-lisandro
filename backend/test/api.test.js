@@ -1,5 +1,9 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
+import { mkdtemp, rm } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
+import sharp from 'sharp';
 import mysql from 'mysql2/promise';
 import { configuracion } from '../dist/database.js';
 import { crearApp } from '../dist/app.js';
@@ -8,9 +12,10 @@ test('CRUD, validación, publicación y persistencia después de reabrir la base
     const databaseName = `portfolio_test_${process.pid}_${Date.now()}`;
     const admin = await mysql.createConnection(configuracion());
     await admin.query(`CREATE DATABASE ${databaseName} CHARACTER SET utf8mb4`);
+    const uploads = await mkdtemp(join(tmpdir(), 'portfolio-images-'));
     let instance, server, base;
     async function start() {
-        instance = await crearApp(databaseName);
+        instance = await crearApp(databaseName, uploads);
         server = instance.app.listen(0, '127.0.0.1');
         await new Promise(resolve => server.once('listening', resolve));
         base = `http://127.0.0.1:${server.address().port}`;
@@ -19,9 +24,23 @@ test('CRUD, validación, publicación y persistencia después de reabrir la base
     async function request(url = '', method = 'GET', body) {
         return fetch(`${base}/api/proyectos${url}`, { method, headers: { 'Content-Type': 'application/json' }, body: body === undefined ? undefined : JSON.stringify(body) });
     }
-    const draft = { nombre: 'Prueba <script>', descripcion: 'Persistencia real', categoria: 'Sitio web', tecnologias: ['Node.js', 'SQLite'], imagen: 'assets/logo-lisandro.png', enlace: '', estado: 'borrador' };
+    const draft = { nombre: 'Prueba <script>', descripcion: 'Persistencia real', categoria: 'Sitio web', tecnologias: ['Node.js', 'MySQL'], imagen: 'assets/logo-lisandro.png', enlace: '', estado: 'borrador' };
     await start();
     try {
+        const image = await sharp({ create: { width: 10, height: 10, channels: 3, background: '#58629c' } }).png().toBuffer();
+        const uploaded = await fetch(`${base}/api/imagenes`, { method: 'POST', headers: { 'Content-Type': 'image/png' }, body: image });
+        assert.equal(uploaded.status, 201);
+        const { imagen } = await uploaded.json();
+        assert.match(imagen, /^assets\/uploads\/[a-f0-9-]+\.webp$/);
+        const served = await fetch(`${base}/${imagen}`);
+        assert.equal(served.status, 200);
+        assert.equal((await sharp(Buffer.from(await served.arrayBuffer())).metadata()).format, 'webp');
+        for (const type of ['image/png', 'text/html', 'image/svg+xml']) {
+            const invalid = await fetch(`${base}/api/imagenes`, { method: 'POST', headers: { 'Content-Type': type }, body: '<script>invalid</script>' });
+            assert.equal(invalid.status, 400);
+        }
+        assert.equal((await fetch(`${base}/api/imagenes`, { method: 'POST', headers: { 'Content-Type': 'image/png' }, body: Buffer.alloc(5 * 1024 * 1024 + 1) })).status, 413);
+        draft.imagen = imagen;
         assert.equal((await (await request()).json()).length, 4);
         let response = await request('', 'POST', draft);
         assert.equal(response.status, 201);
@@ -31,6 +50,8 @@ test('CRUD, validación, publicación y persistencia después de reabrir la base
         assert.equal((await request(`/${created.id}`, 'PUT', { ...draft, estado: 'publicado', nombre: 'Modificado' })).status, 200);
         await stop(); await start();
         assert.equal((await (await request(`/${created.id}`)).json()).nombre, 'Modificado');
+        assert.equal((await (await request(`/${created.id}`)).json()).imagen, imagen);
+        assert.equal((await fetch(`${base}/${imagen}`)).status, 200);
         assert.equal((await (await request()).json()).length, 5);
         for (const invalid of [{ ...draft, nombre: ' ' }, { ...draft, tecnologias: [] }, { ...draft, estado: 'otro' }, { ...draft, enlace: 'javascript:alert(1)' }, { ...draft, imagen: '../.env' }, { ...draft, imagen: '', enlace: '' }, null]) {
             assert.equal((await request('', 'POST', invalid)).status, 400);
@@ -48,5 +69,5 @@ test('CRUD, validación, publicación y persistencia después de reabrir la base
         for (const project of await (await request('?todos=true')).json()) await request(`/${project.id}`, 'DELETE');
         await stop(); await start();
         assert.deepEqual(await (await request('?todos=true')).json(), []); // No resucita datos iniciales.
-    } finally { await stop(); await admin.query(`DROP DATABASE ${databaseName}`); await admin.end(); }
+    } finally { await stop(); await admin.query(`DROP DATABASE ${databaseName}`); await admin.end(); await rm(uploads, { recursive: true, force: true }); }
 });

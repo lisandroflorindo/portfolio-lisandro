@@ -4,3 +4,4 @@ backend/dist/
 .env.*
 !.env.example
 tmp/
+assets/uploads/

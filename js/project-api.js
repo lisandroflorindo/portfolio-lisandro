@@ -1,10 +1,10 @@
 export async function api(path = '', options = {}) {
     let response;
     try { response = await fetch(`/api/proyectos${path}`, { ...options, headers: { 'Content-Type': 'application/json' } }); }
-    catch { throw new Error('No se pudo conectar con el servidor. Verificá que esté iniciado y reintentá.'); }
+    catch { throw new Error('No se pudo conectar con el servidor'); }
     if (response.status === 204) return;
     let data;
-    try { data = await response.json(); } catch { throw new Error('Respuesta inesperada. Abrí el portfolio desde el servidor Node.js.'); }
+    try { data = await response.json(); } catch { throw new Error('Error de conexión'); }
     if (!response.ok) throw new Error(data.error || 'No se pudo completar la operación.');
     return data;
 }

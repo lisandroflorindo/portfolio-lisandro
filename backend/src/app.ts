@@ -2,8 +2,9 @@ import express from 'express';
 import { resolve } from 'node:path';
 import { abrirBase, root } from './database.js';
 import { validarProyecto } from './proyecto.js';
+import { rutasImagenes } from './imagenes.js';
 
-export async function crearApp(databaseName?: string) {
+export async function crearApp(databaseName?: string, uploadDirectory = resolve(root, 'assets/uploads')) {
     const store = await abrirBase(databaseName);
     const app = express();
     app.disable('x-powered-by');
@@ -14,6 +15,8 @@ export async function crearApp(databaseName?: string) {
         if (origin && origin !== `${req.protocol}://${req.get('host')}`) { res.status(403).json({ error: 'Origen no permitido.' }); return; }
         next();
     });
+    app.use('/api/imagenes', rutasImagenes(uploadDirectory));
+    app.use('/assets/uploads', express.static(uploadDirectory, { setHeaders: res => { res.setHeader('X-Content-Type-Options', 'nosniff'); } }));
     app.use(express.json({ limit: '32kb' }));
     app.get('/api/proyectos', async (req, res) => { res.json(await store.listar(req.query.todos === 'true')); });
     app.param('id', (req, res, next, value) => {
@@ -49,7 +52,7 @@ export async function crearApp(databaseName?: string) {
     app.use((_req, res) => { res.status(404).send('Página no encontrada.'); });
     const errors: express.ErrorRequestHandler = (error, _req, res, _next) => {
         if (error.type === 'entity.parse.failed') { res.status(400).json({ error: 'JSON inválido.' }); return; }
-        if (error.type === 'entity.too.large') { res.status(413).json({ error: 'La solicitud es demasiado grande.' }); return; }
+        if (error.type === 'entity.too.large') { res.status(413).json({ error: 'La solicitud es demasiado grande. Las imágenes admiten hasta 5 MB.' }); return; }
         console.error(error);
         res.status(500).json({ error: 'No se pudo completar la operación.' });
     };

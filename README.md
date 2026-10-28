@@ -57,7 +57,7 @@ POST y PUT reciben JSON con todos estos campos:
 }
 ```
 
-`id` es entero autoincremental. Nombre y categoría admiten hasta 120 caracteres; descripción hasta 3000; imagen y enlace hasta 500. Se exige al menos una imagen o enlace y entre 1 y 20 tecnologías de hasta 50 caracteres. Estado acepta `borrador` o `publicado`. Las imágenes pueden apuntar a archivos existentes dentro de `assets/` o URLs HTTP(S); no se implementa carga de archivos. Enlace acepta HTTP(S). Los errores devuelven `{ "error": "mensaje" }` y estados 400, 403, 404, 413 o 500 según corresponda.
+`id` es entero autoincremental. Nombre y categoría admiten hasta 120 caracteres; descripción hasta 3000; imagen y enlace hasta 500. Se exige al menos una imagen o enlace y entre 1 y 20 tecnologías de hasta 50 caracteres. Estado acepta `borrador` o `publicado`. Las imágenes pueden apuntar a archivos existentes dentro de `assets/` o URLs HTTP(S); el formulario permite seleccionar y subir archivos JPG, PNG o WebP de hasta 5 MB. Enlace acepta HTTP(S). Los errores devuelven `{ "error": "mensaje" }` y estados 400, 403, 404, 413 o 500 según corresponda.
 
 ## Decisiones para la defensa
 
@@ -88,3 +88,9 @@ Para la defensa:
 ## Git y entrega
 
 Se conserva el repositorio y su historial. Revisar `git diff`, registrar los cambios con un commit descriptivo y subir a la rama correspondiente del repositorio existente. Compartir su enlace con la docente. La actualización en GitHub requiere hacer el push; no está incluida automáticamente al ejecutar el proyecto.
+
+## Imágenes de proyectos
+
+En Gestionar proyectos, usar el botón del selector de archivos en **Imagen**. Se muestra una vista previa y el archivo se sube al guardar. Al editar, la imagen existente se conserva si no elegís otra. Quitar imagen permite guardar sin imagen cuando se indica un enlace representativo.
+
+`POST /api/imagenes` recibe el archivo binario con su Content-Type, valida que sea JPG/PNG/WebP sin animación (máximo 5 MB y 25 megapíxeles) y lo convierte a WebP de hasta 1600 × 1600 píxeles. Los archivos se guardan en `assets/uploads/`, con nombres aleatorios; MySQL almacena la ruta. Esta carpeta está excluida de Git: debe respaldarse junto con la base al trasladar el sitio. Reemplazar o eliminar un proyecto no borra los archivos anteriores, para evitar romper imágenes compartidas.

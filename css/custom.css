@@ -46,7 +46,7 @@ a:hover {
 }
 
 .bg-surface {
-    background-color: var(--brand-surface) !important;
+    background-color: var(--brand-surface);
 }
 
 :focus-visible {
@@ -66,7 +66,7 @@ a:hover {
     display: inline-flex;
     align-items: center;
     gap: 0.6rem;
-    color: var(--brand-primary) !important;
+    color: var(--brand-primary);
     font-weight: 800;
     letter-spacing: 0;
 }
@@ -410,7 +410,7 @@ a:hover {
 }
 
 .about-highlight {
-    color: var(--text-primary) !important;
+    color: var(--text-primary);
     font-weight: 700;
 }
 
@@ -813,8 +813,8 @@ a:hover {
 
 @media (max-width: 359.98px) {
     .container {
-        padding-left: 1rem !important;
-        padding-right: 1rem !important;
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
 
     .hero-copy h1 {
@@ -835,15 +835,15 @@ a:hover {
     *,
     *::before,
     *::after {
-        scroll-behavior: auto !important;
-        transition-duration: 0.01ms !important;
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
+        scroll-behavior: auto;
+        transition-duration: 0.01ms;
+        animation-duration: 0.01ms;
+        animation-iteration-count: 1;
     }
 }
 
 /* Gestión de proyectos: mantiene la paleta y las tarjetas del portfolio. */
-[hidden] { display: none !important; }
+[hidden] { display: none; }
 .project-toolbar { display: flex; justify-content: flex-end; margin-bottom: 1.5rem; }
 .management-layout { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 2rem; align-items: start; }
 .management-layout .project-card { grid-template-columns: 1fr; }
@@ -863,3 +863,8 @@ button:disabled { opacity: 0.6; cursor: wait; }
 .project-without-image { grid-template-columns: 1fr; }
 .project-info > .outline-button { margin-top: 1rem; }
 @media (max-width: 991.98px) { .management-layout { grid-template-columns: 1fr; } }
+
+#project-form .image-preview { width: 100%; max-height: 220px; object-fit: contain; margin-top: 1rem; border-radius: 12px; background: var(--brand-surface); }
+#project-form input[type="file"] { font-size: 0.9rem; }
+#project-form input[type="file"]::file-selector-button { padding: 0.6rem 0.8rem; margin-right: 0.8rem; border: 0; border-radius: 8px; background: var(--brand-accent); color: white; font: inherit; font-weight: 700; cursor: pointer; }
+#remove-image { align-self: flex-start; margin-top: 0.75rem; }
